@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Influencer profile</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Influencer Engagement & Sponsorship Co-ordination Platform</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{{url_for('logout')}}">SignOut</a>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+      </nav>
+    <H2>Fill your details</H2>
+    <h1>Complete Your Influencer Profile</h1>
+
+     <!-- Flash messages -->
+     {% with messages = get_flashed_messages() %}
+     {% if messages %}
+         <ul class="flashes">
+             {% for message in messages %}
+                 <li>{{ message }}</li>
+             {% endfor %}
+         </ul>
+     {% endif %}
+    {% endwith %}
+
+    <form method="POST" action="">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+
+        <label for="platform" class="form-label" style="color:black">Choose a platform</label>
+                  <select class="form-select" aria-label="Default select example" id="platform" name="platform">
+                    <option selected>--SELECT--</option>
+                    <option value="Instagram">Instagram</option>
+                    <option value="Facebook">Facebook</option>
+                    <option value="Twitter">Twitter</option>
+                    <option value="Youtube">YouTube</option>
+                  </select>
+        
+        <label for="platform_username">platform Username:</label>
+        <input type="text" id="platform_username" name="platform_username" required><br><br>
+
+        <label for="category">Category:</label>
+        <input type="text" id="category" name="category" required><br><br>
+        
+        <label for="niche">Niche:</label>
+        <input type="text" id="niche" name="niche" required><br><br>
+
+        <label for="reach">Reach:</label>
+        <input type="number" id="reach" name="reach" required><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

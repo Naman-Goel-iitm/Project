@@ -1,0 +1,17 @@
+.main_box{
+    background: url(loginadmin.png);
+    height: 100vh;
+    background-size: cover;
+}
+#form{
+    flex-wrap: wrap;
+    margin:150px auto;
+    width:500px;
+    height:300px;
+    border: 2px solid transparent;
+    border-radius: 15px;
+}
+.title{
+    margin-bottom: 15px;
+    text-decoration: underline;
+}

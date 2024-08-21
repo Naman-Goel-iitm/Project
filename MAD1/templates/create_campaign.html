@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Influencer Platform</a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="{{ url_for('sponsor_dashboard') }}">Dashboard</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url_for('view_campaigns') }}">View Campaigns</a></li>
+        </ul>
+    </div>
+</nav>
+{% extends 'base.html' %}
+{% block title %}Create Campaign{% endblock %}
+{% block content %}
+<h1>Create a New Campaign</h1>
+<form method="post" action="{{ url_for('create_campaign') }}">
+    <div class="form-group">
+        <label for="name">Campaign Name</label>
+        <input type="text" class="form-control" id="name" name="name" required>
+    </div>
+    <div class="form-group">
+        <label for="description">Description</label>
+        <textarea class="form-control" id="description" name="description" required></textarea>
+    </div>
+    <div class="form-group">
+        <label for="start_date">Start Date</label>
+        <input type="date" class="form-control" id="start_date" name="start_date" required>
+    </div>
+    <div class="form-group">
+        <label for="end_date">End Date</label>
+        <input type="date" class="form-control" id="end_date" name="end_date">
+    </div>
+    <div class="form-group">
+        <label for="budget">Budget</label>
+        <input type="number" class="form-control" id="budget" name="budget" required>
+    </div>
+    <div class="form-group">
+        <label for="visibility">Visibility</label>
+        <select class="form-control" id="visibility" name="visibility" required>
+            <option value="public">Public</option>
+            <option value="private">Private</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="goals">Goals</label>
+        <textarea class="form-control" id="goals" name="goals"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Create Campaign</button>
+</form>
+{% endblock %}

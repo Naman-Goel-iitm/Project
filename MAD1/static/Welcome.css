@@ -1,0 +1,25 @@
+#main_box{
+    background: url(imaage2.png);
+    height: 100vh;
+    background-size: cover;
+}
+#message{
+    margin-top: 30px;
+    color: aquamarine;
+    text-decoration:  underline;
+}
+#logsign{
+    margin-top:70px;
+}
+#login{
+    margin-right: 10px;
+}
+.cre_profile{
+    flex-wrap: wrap;
+    /* margin-top:200px ; */
+    margin:150px auto;
+    width:500px;
+    height:300px;
+    border: 2px solid whitesmoke;
+    border-radius: 15px;
+}

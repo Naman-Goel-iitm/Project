@@ -1,0 +1,28 @@
+#main_box{
+    background: url(image3.png);
+    height: 100vh;
+    background-size: cover;
+}
+#message{
+    margin-top: 30px;
+    color: aquamarine;
+    text-decoration: dotted underline;
+}
+.sel_profile{
+    flex-wrap: wrap;
+    /* margin-top:200px ; */
+    margin:150px auto;
+    width:500px;
+    height:300px;
+    border: 2px solid whitesmoke;
+    border-radius: 15px;
+}
+#Admin{
+    margin-top: 30px;
+    padding-left: 90px;
+    padding-right: 90px;
+}
+#User{
+    padding-left: 100px;
+    padding-right: 100px;
+}

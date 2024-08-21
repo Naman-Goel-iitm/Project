@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Influencer Platform</a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="{{ url_for('Admindashboard') }}">Dashboard</a></li>
+        </ul>
+    </div>
+</nav>
+{% extends "base.html" %}
+
+{% block title %}
+View Campaigns
+{% endblock %}
+
+{% block content %}
+<h1>All Campaigns</h1>
+<ul>
+    {% for campaign in campaigns %}
+        <li>
+            <strong>{{ campaign.name }}</strong>: {{ campaign.description }}<br>
+            Start Date: {{ campaign.start_date }}<br>
+            End Date: {{ campaign.end_date }}<br>
+            Budget: {{ campaign.budget }}
+            {% if campaign.is_flagged %}
+                <form action="{{ url_for('unflag_campaign', campaign_id=campaign.id) }}" method="post" style="display:inline;">
+                    <button type="submit" class="btn btn-success">Unflag Campaign</button>
+                </form>
+            {% else %}
+                <form action="{{ url_for('flag_campaign', campaign_id=campaign.id) }}" method="post" style="display:inline;">
+                    <button type="submit" class="btn btn-warning">Flag Campaign</button>
+                </form>
+            {% endif %}
+            <form action="{{ url_for('delete_campaign_admin', campaign_id=campaign.id) }}" method="post" style="display:inline;">
+                <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this campaign?');">Delete Campaign</button>
+            </form>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

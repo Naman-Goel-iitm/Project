@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Influencer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+<div class="container mt-5">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Influencer Platform</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('Admindashboard') }}">Dashboard</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="row">
+        {% for sponsor in sponsor %}
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">{{ sponsor.name }}</h5>
+                    <p class="card-text"><strong>Industry:</strong> {{ sponsor.industry }}</p>
+                    <p class="card-text"><strong>Budget:</strong> {{ sponsor.budget }}</p>
+                </div>
+                {% if sponsor.is_flagged %}
+                <form action="{{ url_for('unflag_sponsor', sponsor_id=sponsor.id) }}" method="post" style="display:inline;">
+                    <button type="submit" class="btn btn-success">Unflag sponsor</button>
+                </form>
+                {% else %}
+                <form action="{{ url_for('flag_sponsor', sponsor_id=sponsor.id) }}" method="post" style="display:inline;">
+                    <button type="submit" class="btn btn-warning">Flag sponsor</button>
+                </form>
+                {% endif %}
+                <form action="{{ url_for('delete_sponsor_admin', sponsor_id=sponsor.id) }}" method="post" style="display:inline;">
+                    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this sponsor?');">Delete sponsor</button>
+                </form>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+</body>
+</html>
+
